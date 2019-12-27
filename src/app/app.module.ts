@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {AppHotelsComponent} from './app-hotels.component';
+import {AppComponent} from './app.component';
 import {BrowserModule} from '@angular/platform-browser';
 import { WeatherComponent } from './weather/weather.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -11,12 +11,12 @@ import { TeddyBearComponent } from './teddy-bear/teddy-bear.component';
 
 
 @NgModule({
-  declarations: [AppHotelsComponent, WeatherComponent, ProfileComponent,
+  declarations: [AppComponent, WeatherComponent, ProfileComponent,
     HeaderComponent, FooterComponent, ListComponent, VillageComponent, TeddyBearComponent],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppHotelsComponent]
+  bootstrap: [AppComponent]
 })
-export class AppHotelsModule { }
+export class AppModule { }
