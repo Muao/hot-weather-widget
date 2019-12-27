@@ -2,15 +2,15 @@
   <div class="teddy-text">
     <h4>Nam libero voluptatem</h4>
     <span class="w-line"> </span>
-    <img src="assets/images/b1.jpg" alt="" class="img-responsive">
+    <img [src]="profile.photo" alt="" class="img-responsive">
   </div>
   <div class="teddy-follow">
     <ul>
       <li class="folw-h"><h3>2850</h3>
-        <p>Followers</p>
+        <p>{{profile.followers}}</p>
       </li>
       <li><h3>675</h3>
-        <p>Following</p>
+        <p>{{profile.following}}</p>
       </li>
     </ul>
   </div>

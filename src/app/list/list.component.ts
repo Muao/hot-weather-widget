@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
+  @Input()
+  public hotels: Hotel[];
+
+  @Input()
+  public currentHotel: Hotel;
+
+  @Output()
+  public hotel: EventEmitter<Hotel> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  public selectHotel(hotel: Hotel): void {
+    this.hotel.emit(hotel);
+  }
 }

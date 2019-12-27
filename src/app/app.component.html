@@ -1,19 +1,17 @@
 <body>
 <app-header></app-header>
 <div class="element">
-  <div class="element-left">
-    <div class="element-bg-img"><img src="/assets/images/1.jpg" alt="" class="img-responsive">
-    </div>
-    <div class="element-left-bottom">
-      <app-list></app-list>
-    </div>
-  </div>
-  <div class="element-right">
-    <app-weather></app-weather>
-    <app-profile></app-profile>
+  <app-list [currentHotel]="currentHotel" [hotels]="hotels" (hotel)="selectHotel($event)"></app-list>
 
-  </div>
-  <div class="clear"></div>
+
+<div class="element-right">
+
+  <app-weather [weather]="currentHotel.weather"></app-weather>
+
+  <app-profile [profile]="currentHotel.profile"></app-profile>
+</div>
+<div class="clear"></div>
 </div>
 <app-footer></app-footer>
+
 </body>
