@@ -18,28 +18,7 @@
   <span class="line"> </span>
   <div class="activity_box">
     <div class="scrollbar" id="style-2">
-<!--      <app-list-item [currentHotel]="currentHotel" [hotels]="hotels" (hotel)="selectHotel($event)"></app-list-item>-->
-      <div class="activity-row"
-           *ngFor="let hotel of hotels"
-           (click)="selectHotel(hotel)"
-           [ngClass]="{'active-hotel': hotel.id === currentHotel.id}">
-        <div class="activity-desc">
-          <h5>{{hotel.title}}</h5>
-          <p>{{hotel.description}}</p>
-          <p>{{hotel.address}}</p>
-          <h6>{{hotel.phone}}</h6>
-        </div>
-        <div class="activity-img">
-          <ul>
-            <li *ngFor="let photo of hotel.photos">
-              <img [src]="photo"  alt=""/>
-            </li>
-          </ul>
-        </div>
-        <div class="clear"></div>
-      </div>
-    </div>
-
+     <app-list-item [currentHotel]="currentHotel" [hotels]="hotels" (hotel)="selectHotel($event)"></app-list-item>
   </div>
 </div>
   </div>

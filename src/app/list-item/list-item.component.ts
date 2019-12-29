@@ -10,7 +10,7 @@ export class ListItemComponent implements OnInit {
   public hotels: Hotel[];
 
   @Input()
-  public currentHotel: Hotel = this.hotels[0];
+  public currentHotel: Hotel;
   constructor() { }
 
   @Output()
