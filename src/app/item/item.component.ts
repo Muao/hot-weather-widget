@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-list-item',
-  templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.css']
+  selector: 'item',
+  templateUrl: './item.component.html',
+  styleUrls: ['./item.component.css']
 })
-export class ListItemComponent implements OnInit {
+export class ItemComponent implements OnInit {
   @Input()
   public hotels: Hotel[];
 
