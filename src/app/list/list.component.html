@@ -18,7 +18,7 @@ console.log(hotels);
   <span class="line"> </span>
   <div class="activity_box">
     <div class="scrollbar" id="style-2">
-     <item [currentHotel]="currentHotel" [hotels]="hotels" (hotel)="selectHotel($event)"></item>
+     <item [currentHotel]="currentHotel" [hotels]="hotels" (hotel)="selectHotel($event)" (favorite)="addToFavorite($event)"></item>
   </div>
 </div>
   </div>

@@ -16,10 +16,17 @@ export class ItemComponent implements OnInit {
   @Output()
   public hotel: EventEmitter<Hotel> = new EventEmitter();
 
+  @Output()
+  public favorite: EventEmitter<Hotel> = new EventEmitter();
+
   ngOnInit() {
   }
 
   public selectHotel(hotel: Hotel): void {
     this.hotel.emit(hotel);
+  }
+
+  public addToFavorite(hotel: Hotel): void {
+    this.favorite.emit(hotel);
   }
 }

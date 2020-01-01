@@ -1,7 +1,7 @@
 <body>
 <app-header></app-header>
 <div class="element">
-  <app-list [currentHotel]="currentHotel" [hotels]="hotels" (hotel)="selectHotel($event)"></app-list>
+  <app-list [currentHotel]="currentHotel" [hotels]="hotels" (hotel)="selectHotel($event)" (favorite)="addToFavorite($event)"></app-list>
 
 
 <div class="element-right">
@@ -9,9 +9,12 @@
   <app-weather [weather]="currentHotel.weather"></app-weather>
 
   <app-profile [profile]="currentHotel.profile"></app-profile>
+  <ng-container *ngIf="favoriteHotels.length > 0">
+  <app-favorite [favoriteHotels]="favoriteHotels"></app-favorite>
+</ng-container>
 </div>
 <div class="clear"></div>
 </div>
-<app-footer></app-footer>
+<app-footer ></app-footer>
 
 </body>

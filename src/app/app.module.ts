@@ -9,11 +9,21 @@ import { FooterComponent } from './footer/footer.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import {AppHotelsComponent} from './app-hotels/app-hotels.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 
 @NgModule({
-  declarations: [AppHotelsComponent, AppComponent, WeatherComponent, ProfileComponent,
-    HeaderComponent, FooterComponent, ListComponent, ItemComponent],
+  declarations: [
+    AppHotelsComponent,
+    AppComponent,
+    WeatherComponent,
+    ProfileComponent,
+    HeaderComponent,
+    FooterComponent,
+    ListComponent,
+    ItemComponent,
+    FavoriteComponent
+  ],
   imports: [
     BrowserModule,
     SharedModule

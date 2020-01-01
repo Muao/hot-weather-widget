@@ -79,6 +79,8 @@ export class AppComponent implements OnInit {
   ];
   public currentHotel: Hotel = this.hotels[0];
 
+  public favoriteHotels: Hotel[] = new Array();
+
   public constructor() {
   }
 
@@ -87,5 +89,11 @@ export class AppComponent implements OnInit {
 
   public selectHotel(hotel: Hotel): void {
     this.currentHotel = hotel;
+  }
+
+  public addToFavorite(hotel: Hotel): void {
+
+    this.favoriteHotels.push(hotel);
+    console.log(this.favoriteHotels);
   }
 }
