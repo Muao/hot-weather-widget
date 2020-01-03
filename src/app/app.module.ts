@@ -10,6 +10,8 @@ import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import {AppHotelsComponent} from './app-hotels/app-hotels.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { TitleAndDescriptionSearchPipe } from './list/pipe/title-and-description-search.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,11 +24,13 @@ import { FavoriteComponent } from './favorite/favorite.component';
     FooterComponent,
     ListComponent,
     ItemComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    TitleAndDescriptionSearchPipe
   ],
   imports: [
     BrowserModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

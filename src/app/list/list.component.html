@@ -5,6 +5,9 @@
   <div class="element-left-bottom">
 
 <div class="ele-strip">
+  <mat-form-field>
+  <input matInput type="text" name="filterInput" [(ngModel)]="filterInput"/>
+</mat-form-field>
   <ul>
     <li><a href="index.html#">Hotel</a></li>
     <li><a href="index.html#">Fishing</a></li>
@@ -18,7 +21,8 @@
   <span class="line"> </span>
   <div class="activity_box">
     <div class="scrollbar" id="style-2">
-     <item [currentHotel]="currentHotel" [hotels]="hotels" (hotel)="selectHotel($event)" (favorite)="addToFavorite($event)"></item>
+      <!-- при загрузке  страницы в pipe не заходит => прилетает пустой hotels. Почему? -->
+     <item [currentHotel]="currentHotel" [hotels]="hotels | titleAndDescriptionSearch: filterInput" (hotel)="selectHotel($event)" (favorite)="addToFavorite($event)"></item>
   </div>
 </div>
   </div>

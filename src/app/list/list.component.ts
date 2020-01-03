@@ -30,6 +30,6 @@ export class ListComponent implements OnInit {
 
   public addToFavorite(hotel: Hotel): void {
     this.favorite.emit(hotel);
-    console.log('was added from list' + hotel.title);
   }
+
 }
