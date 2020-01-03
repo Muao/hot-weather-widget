@@ -21,9 +21,7 @@
   <span class="line"> </span>
   <div class="activity_box">
     <div class="scrollbar" id="style-2">
-      <!-- при загрузке  страницы в pipe не заходит => прилетает пустой hotels. Почему? -->
      <item [currentHotel]="currentHotel" [hotels]="hotels | titleAndDescriptionSearch: filterInput" (hotel)="selectHotel($event)" (favorite)="addToFavorite($event)"></item>
-  </div>
-</div>
+  </div></div>
   </div>
 </div>

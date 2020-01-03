@@ -6,11 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TitleAndDescriptionSearchPipe implements PipeTransform {
 
   transform(value: Hotel[], args: string): Hotel[] {
-    if (args === '') {
-      console.log('args is empty');
+    if (args === '' || args === undefined) {
       return value;
     }
-    return value.filter(i => i.title.toLowerCase().includes(args));
+    
+    const filterByName = value.filter(i => i.title.toLowerCase().includes(args.toLowerCase()));
+    if (filterByName.length !== 0) {
+      return filterByName;
+    } else {
+      return value.filter(i => i.description.toLowerCase().includes(args.toLowerCase()));
+    }
   }
 
 }
