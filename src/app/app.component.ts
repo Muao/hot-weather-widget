@@ -92,8 +92,9 @@ export class AppComponent implements OnInit {
   }
 
   public addToFavorite(hotel: Hotel): void {
-
     this.favoriteHotels.push(hotel);
-    console.log(this.favoriteHotels);
+    // remove duplicated value in array
+    this.favoriteHotels = Array.from(new Set(this.favoriteHotels));
+
   }
 }

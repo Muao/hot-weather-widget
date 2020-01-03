@@ -1,1 +1,8 @@
-<p>{{favoriteHotels.length}}</p>
+<!-- <p>{{favoriteHotels.length}}</p> -->
+<p>Favorite hotels:</p>
+  <ul>
+    <li *ngFor="let hotel of favoriteHotels; let i = index">
+      {{ hotel.title }}
+      <button mat-raised-button (click)="remove(i)"> Delete</button>
+    </li>
+  </ul>

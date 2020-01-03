@@ -14,7 +14,7 @@ export class FavoriteComponent implements OnInit {
   ngOnInit() {
   }
 
-  // public removeFromFavarites(hotel: Hotel): void {
-  //   this.favoriteHotels.filter(h => h !== hotel);
-  // }
+  public remove(index): void {
+    this.favoriteHotels.splice(index, 1);
+  }
 }
