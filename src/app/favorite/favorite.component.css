@@ -4,3 +4,17 @@ color: white;
 p{
   color: aqua;
 }
+
+.favorite {
+  white-space: nowrap;
+  background: #5fb3f9;
+  text-align: center;
+  padding: 1em 1em;
+  border-radius: 5px;
+  margin-top: 2.5em;
+}
+
+.mat-icon{
+  position:relative;
+  float: right;
+}
