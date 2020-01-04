@@ -19,6 +19,8 @@ export class ListComponent implements OnInit {
   @Output()
   public favorite: EventEmitter<Hotel> = new EventEmitter();
 
+  public options: string[] = new Array('All', '3', '4', '5');
+
   constructor() { }
 
   ngOnInit() {
@@ -31,5 +33,4 @@ export class ListComponent implements OnInit {
   public addToFavorite(hotel: Hotel): void {
     this.favorite.emit(hotel);
   }
-
 }

@@ -11,7 +11,8 @@ import { ItemComponent } from './item/item.component';
 import {AppHotelsComponent} from './app-hotels/app-hotels.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleAndDescriptionSearchPipe } from './list/pipe/title-and-description-search.pipe';
-import { FormsModule } from '@angular/forms';
+import { FilteringByStarsPipe } from './list/pipe/filtering-by-stars.pipe';
+
 
 
 @NgModule({
@@ -25,12 +26,12 @@ import { FormsModule } from '@angular/forms';
     ListComponent,
     ItemComponent,
     FavoriteComponent,
-    TitleAndDescriptionSearchPipe
+    TitleAndDescriptionSearchPipe,
+    FilteringByStarsPipe
   ],
   imports: [
     BrowserModule,
-    SharedModule,
-    FormsModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,27 +1,43 @@
 <div class="element-left">
   <div class="element-bg-img">
-    <img [src]="currentHotel.picture" alt="" class="img-responsive">
+    <img [src]="currentHotel.picture" alt="" class="img-responsive" />
   </div>
   <div class="element-left-bottom">
+    <div class="ele-strip">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="filterInput"
+          [(ngModel)]="filterInput"
+        />
+      </mat-form-field>
 
-<div class="ele-strip">
-  <mat-form-field>
-  <input matInput type="text" name="filterInput" [(ngModel)]="filterInput"/>
-</mat-form-field>
-  <ul>
-    <li><a href="index.html#">Hotel</a></li>
-    <li><a href="index.html#">Fishing</a></li>
-    <li><a href="index.html#">Tours</a></li>
-    <li class="anc-bor"><a href="index.html#">Weather</a></li>
-  </ul>
-</div>
+      <div>
+        <mat-radio-group
+          name="radioOpt1"
+          [(ngModel)]="selectedRadio"
+        >
+          <mat-radio-button *ngFor="let opt of options" [value]="opt">
+            {{opt}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
 
-<div class="village">
-  <h3>Righteous indignation & like</h3>
-  <span class="line"> </span>
-  <div class="activity_box">
-    <div class="scrollbar" id="style-2">
-     <item [currentHotel]="currentHotel" [hotels]="hotels | titleAndDescriptionSearch: filterInput" (hotel)="selectHotel($event)" (favorite)="addToFavorite($event)"></item>
-  </div></div>
+    <div class="village">
+      <h3>Righteous indignation & like</h3>
+      <span class="line"> </span>
+      <div class="activity_box">
+        <div class="scrollbar" id="style-2">
+          <item
+            [currentHotel]="currentHotel"
+            [hotels]="hotels | titleAndDescriptionSearch: filterInput | filteringByStars: selectedRadio"
+            (hotel)="selectHotel($event)"
+            (favorite)="addToFavorite($event)"
+          ></item>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

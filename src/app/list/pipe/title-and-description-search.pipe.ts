@@ -9,7 +9,6 @@ export class TitleAndDescriptionSearchPipe implements PipeTransform {
     if (args === '' || args === undefined) {
       return value;
     }
-    
     const filterByName = value.filter(i => i.title.toLowerCase().includes(args.toLowerCase()));
     if (filterByName.length !== 0) {
       return filterByName;
