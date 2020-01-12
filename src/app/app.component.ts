@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-root',
@@ -81,7 +82,7 @@ export class AppComponent implements OnInit {
 
   public favoriteHotels: Hotel[] = new Array();
 
-  public constructor() {
+  public constructor(private snackBar: MatSnackBar) {
   }
 
   public ngOnInit(): void {
@@ -95,6 +96,7 @@ export class AppComponent implements OnInit {
     this.favoriteHotels.push(hotel);
     // remove duplicated value in array
     this.favoriteHotels = Array.from(new Set(this.favoriteHotels));
+    this.snackBar.open(hotel.title + ' was added to favorite list', 'Adding', {duration: 2000});
 
   }
 }

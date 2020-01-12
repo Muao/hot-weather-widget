@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-favorite',
@@ -9,12 +10,19 @@ export class FavoriteComponent implements OnInit {
 
   @Input()
   public favoriteHotels: Hotel[];
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
-  public remove(index): void {
+  public remove(index: number): void {
+    this.snackBar.open(
+      this.favoriteHotels[index].title + ' Successfully removed from favorite',
+      'Removing',
+      {
+      duration: 2000,
+    });
     this.favoriteHotels.splice(index, 1);
+
   }
 }
