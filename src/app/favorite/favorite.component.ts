@@ -1,3 +1,4 @@
+import { DataService } from './../servises/data.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 
@@ -8,11 +9,13 @@ import { MatSnackBar } from '@angular/material';
 })
 export class FavoriteComponent implements OnInit {
 
-  @Input()
-  public favoriteHotels: Hotel[];
-  constructor(private snackBar: MatSnackBar) { }
 
-  ngOnInit() {
+  public favoriteHotels: Hotel[];
+  constructor(private snackBar: MatSnackBar, private dataService: DataService) { }
+
+  ngOnInit(
+  ) {
+    this.favoriteHotels = this.dataService.getFavoriveHotels;
   }
 
   public remove(index: number): void {

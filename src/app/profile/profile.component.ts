@@ -1,3 +1,4 @@
+import { DataService } from './../servises/data.service';
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
@@ -7,11 +8,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  @Input()
   public profile: Profile;
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.profile = this.dataService.getCurrentHotel.profile;
   }
 
 }

@@ -31,10 +31,7 @@
       <div class="activity_box">
         <div class="scrollbar" id="style-2">
           <item
-            [currentHotel]="currentHotel"
             [hotels]="hotels | titleAndDescriptionSearch: filterInput | filteringByStars: selectedRadio"
-            (hotel)="selectHotel($event)"
-            (favorite)="addToFavorite($event)"
           ></item>
         </div>
       </div>

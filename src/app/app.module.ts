@@ -12,6 +12,7 @@ import {AppHotelsComponent} from './app-hotels/app-hotels.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleAndDescriptionSearchPipe } from './list/pipe/title-and-description-search.pipe';
 import { FilteringByStarsPipe } from './list/pipe/filtering-by-stars.pipe';
+import { DataService } from './servises/data.service';
 
 
 
@@ -33,7 +34,7 @@ import { FilteringByStarsPipe } from './list/pipe/filtering-by-stars.pipe';
     BrowserModule,
     SharedModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

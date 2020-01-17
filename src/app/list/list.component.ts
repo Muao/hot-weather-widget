@@ -1,3 +1,4 @@
+import { DataService } from './../servises/data.service';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
@@ -7,30 +8,23 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  @Input()
   public hotels: Hotel[];
-
-  @Input()
   public currentHotel: Hotel;
+  public options: string[];
 
-  @Output()
-  public hotel: EventEmitter<Hotel> = new EventEmitter();
-
-  @Output()
-  public favorite: EventEmitter<Hotel> = new EventEmitter();
-
-  public options: string[] = new Array('All', '3', '4', '5');
-
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.hotels = this.dataService.getHotels;
+    this.currentHotel = this.dataService.getCurrentHotel;
+    this.options = this.dataService.getOptions;
   }
 
   public selectHotel(hotel: Hotel): void {
-    this.hotel.emit(hotel);
+    this.dataService.setCurrentHotel(hotel);
   }
 
   public addToFavorite(hotel: Hotel): void {
-    this.favorite.emit(hotel);
+    this.dataService.addToFavorite(hotel);
   }
 }

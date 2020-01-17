@@ -1,3 +1,4 @@
+import { DataService } from './../servises/data.service';
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
@@ -6,12 +7,13 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  @Input()
+
   public weather: Weather;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.weather = this.dataService.getCurrentHotel.weather;
   }
 
 }
