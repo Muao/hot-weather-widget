@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -78,28 +79,30 @@ export class DataService {
     }
   ];
 
-  private currentHotel: Hotel = this.hotels[0];
+  private currentHotel: BehaviorSubject<Hotel> = new BehaviorSubject<Hotel>(this.hotels[0]);
   private favoriteHotels: Hotel[] = new Array();
   private options: string[] = new Array('All', '3', '4', '5');
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) {
+    this.currentHotel.next(this.hotels[0]);
+   }
 
-  public get getHotels(): Hotel[]   {
-return this.hotels;
+
+
+  public get getHotels(): Observable<Hotel[]>   {
+return of(this.hotels).pipe();
   }
 
-  public get getCurrentHotel(): Hotel {
+  public get getCurrentHotel(): Observable<Hotel> {
 return this.currentHotel;
 }
 
   public setCurrentHotel(hotel: Hotel) {
-    this.currentHotel = hotel;
-    console.log('current hotel change');
-    console.log(this.currentHotel.title);
+    this.currentHotel.next(hotel);
   }
 
-  public get getFavoriveHotels(): Hotel[] {
-    return this.favoriteHotels;
+  public get getFavoriveHotels(): Observable<Hotel[]> {
+    return of(this.favoriteHotels).pipe();
   }
 
   public addToFavorite(hotel: Hotel): void {
@@ -108,7 +111,7 @@ return this.currentHotel;
     this.favoriteHotels = Array.from(new Set(this.favoriteHotels));
     this.snackBar.open(hotel.title + ' was added to favorite list', 'Adding', {duration: 2000});
   }
-  public get getOptions(): string[]{
-    return this.options;
+  public get getOptions(): Observable<string[]>{
+    return of(this.options).pipe();
   }
 }

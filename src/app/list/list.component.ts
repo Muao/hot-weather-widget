@@ -1,5 +1,6 @@
 import { DataService } from './../servises/data.service';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -15,9 +16,17 @@ export class ListComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.hotels = this.dataService.getHotels;
-    this.currentHotel = this.dataService.getCurrentHotel;
-    this.options = this.dataService.getOptions;
+    this.dataService.getHotels.subscribe(res => {
+      this.hotels = res;
+    });
+
+    this.dataService.getCurrentHotel.subscribe( res => {
+      this.currentHotel = res;
+    });
+
+    this.dataService.getOptions.subscribe(res => {
+      this.options = res;
+    });
   }
 
   public selectHotel(hotel: Hotel): void {

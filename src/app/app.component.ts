@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   public constructor(private dataService: DataService) {}
 
   public ngOnInit(): void {
-    this.favoriteHotels = this.dataService.getFavoriveHotels;
+    this.dataService.getFavoriveHotels.subscribe(res => {
+      this.favoriteHotels = res;
+    });
   }
 }

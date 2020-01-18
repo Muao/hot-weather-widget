@@ -1,5 +1,6 @@
 import { DataService } from './../servises/data.service';
 import {Component, Input, OnInit} from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,10 @@ export class ProfileComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.profile = this.dataService.getCurrentHotel.profile;
+
+    this.dataService.getCurrentHotel.subscribe(res => {
+     this.profile = res.profile;
+   });
   }
 
 }

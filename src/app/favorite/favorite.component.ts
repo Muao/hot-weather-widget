@@ -13,9 +13,10 @@ export class FavoriteComponent implements OnInit {
   public favoriteHotels: Hotel[];
   constructor(private snackBar: MatSnackBar, private dataService: DataService) { }
 
-  ngOnInit(
-  ) {
-    this.favoriteHotels = this.dataService.getFavoriveHotels;
+  ngOnInit() {
+    this.dataService.getFavoriveHotels.subscribe(res => {
+      this.favoriteHotels = res;
+    });
   }
 
   public remove(index: number): void {
