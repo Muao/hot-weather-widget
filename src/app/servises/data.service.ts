@@ -12,7 +12,6 @@ export class DataService {
 
   private currentHotel: BehaviorSubject<Hotel> = new BehaviorSubject<Hotel>(null);
   private favoriteHotels: Hotel[] = [];
-  private options: string[] = ['All', '3', '4', '5'];
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -45,6 +44,6 @@ export class DataService {
   }
 
   public get getOptions(): Observable<string[]> {
-    return of(this.options).pipe();
+    return this.http.get<string[]>(`${environment.api}/options`);
   }
 }
