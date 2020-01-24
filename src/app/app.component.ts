@@ -8,12 +8,17 @@ import { DataService } from './servises/data.service';
 })
 export class AppComponent implements OnInit {
 
+  public hotels: Hotel[];
   public favoriteHotels: Hotel[];
 
-  public constructor(private dataService: DataService) {}
+  public constructor(private dataService: DataService) {
+    this.dataService.getHotels.subscribe(res => {
+      this.hotels = res;
+    });
+  }
 
   public ngOnInit(): void {
-    this.dataService.getFavoriveHotels.subscribe(res => {
+    this.dataService.getFavoriteHotels.subscribe(res => {
       this.favoriteHotels = res;
     });
   }

@@ -13,6 +13,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleAndDescriptionSearchPipe } from './list/pipe/title-and-description-search.pipe';
 import { FilteringByStarsPipe } from './list/pipe/filtering-by-stars.pipe';
 import { DataService } from './servises/data.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -32,7 +33,8 @@ import { DataService } from './servises/data.service';
   ],
   imports: [
     BrowserModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
