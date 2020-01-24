@@ -70,6 +70,35 @@
       "stars": 5
     }
   ],
-  "options" : [
-    "All","3", "4", "5"]
+  "options": [
+    "All",
+    "3",
+    "4",
+    "5"
+  ],
+  "favorite": [
+    {
+      "id": 1,
+      "title": "Kharkov plaza",
+      "address": "Kharkov",
+      "description": "Five Stars",
+      "phone": "+3242353434",
+      "picture": "assets/images/2.jpg",
+      "photos": [
+        "assets/images/res.jpg",
+        "assets/images/r1.jpg"
+      ],
+      "weather": {
+        "temperature": 5,
+        "wind": 4,
+        "icon": "rain"
+      },
+      "profile": {
+        "followers": 12,
+        "following": 111,
+        "photo": "assets/images/b2.jpg"
+      },
+      "stars": 4
+    }
+  ]
 }

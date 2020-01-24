@@ -3,7 +3,7 @@
   <ul>
     <li *ngFor="let hotel of favoriteHotels; let i = index">
       {{ hotel.title }}
-      <button mat-button (click)="remove(i)"> <mat-icon>delete</mat-icon></button>
+      <button mat-button (click)="remove(hotel.id)"> <mat-icon>delete</mat-icon></button>
     </li>
   </ul>
 </div>

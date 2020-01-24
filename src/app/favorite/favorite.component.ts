@@ -1,6 +1,5 @@
-import { DataService } from './../servises/data.service';
-import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import {DataService} from './../servises/data.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
@@ -15,7 +14,7 @@ export class FavoriteComponent implements OnInit, OnDestroy {
 
 
   public favoriteHotels: Hotel[];
-  constructor(private snackBar: MatSnackBar, private dataService: DataService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getFavoriteHotels
@@ -25,14 +24,9 @@ export class FavoriteComponent implements OnInit, OnDestroy {
     });
   }
 
-  public remove(index: number): void {
-    this.snackBar.open(
-      this.favoriteHotels[index].title + ' Successfully removed from favorite',
-      'Removing',
-      {
-      duration: 2000,
-    });
-    this.favoriteHotels.splice(index, 1);
+  public remove(id: number): void {
+    this.dataService.deleteFromFavorites(id);
+    this.favoriteHotels = this.favoriteHotels.filter((h: Hotel) => h.id !== id);
 
   }
 

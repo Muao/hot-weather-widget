@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
@@ -11,9 +11,11 @@ import {map} from 'rxjs/operators';
 export class DataService {
 
   private currentHotel: BehaviorSubject<Hotel> = new BehaviorSubject<Hotel>(null);
-  private favoriteHotels: Hotel[] = [];
+  private favoriteHotels: Observable<Hotel[]>;
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
+  constructor(private snackBar: MatSnackBar, private http: HttpClient) {
+    this.favoriteHotels = this.http.get<Hotel[]>(`${environment.api}/favorite`);
+  }
 
 
   public get getHotels(): Observable<Hotel[]> {
@@ -33,14 +35,25 @@ export class DataService {
   }
 
   public get getFavoriteHotels(): Observable<Hotel[]> {
-    return of(this.favoriteHotels).pipe();
+    return this.favoriteHotels;
   }
 
   public addToFavorite(hotel: Hotel): void {
-    this.favoriteHotels.push(hotel);
-    // remove duplicated value in array
-    this.favoriteHotels = Array.from(new Set(this.favoriteHotels));
-    this.snackBar.open(hotel.title + ' was added to favorite list', 'Adding', {duration: 2000});
+    this.http.post<Hotel>(`${environment.api}/favorite`, hotel)
+      .subscribe((res: Hotel) => {
+        this.snackBar.open(`${res.title}` + ' was added to favorite list', 'Adding', {duration: 2000});
+        // fixme adding to favorite hotels not renew frontend
+        this.favoriteHotels.subscribe(h => {
+          h.push(hotel);
+          return h;
+        });
+      });
+  }
+
+  public deleteFromFavorites(id: number): void {
+    this.http.delete<Hotel>(`${environment.api}/favorite/${id}`).subscribe((res: Hotel) => {
+      this.snackBar.open(res.title + ' Successfully removed from favorite', 'Removing', {duration: 2000});
+    });
   }
 
   public get getOptions(): Observable<string[]> {
