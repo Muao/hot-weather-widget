@@ -1,3 +1,4 @@
+import { routes } from './routes';
 import { UsersComponent } from './shared/components/users/users.component';
 import { HotelsComponent } from './shared/components/hotels/hotels.component';
 import { ContactsComponent } from './shared/components/contacts/contacts.component';
@@ -42,29 +43,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     SharedModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {
-      path: '', component: ListComponent
-      },
-      {
-        path: 'hotels', component: HotelsComponent
-        },
-      {
-      path: 'about', component: AboutComponent
-      },
-      {
-        path: 'contacts', component: ContactsComponent
-        },
-
-          {
-            path: 'users', component: UsersComponent
-            },
-
-
-      {
-        path: '**', component: NotFoundComponent// set strong in the end of configuration list
-      }
-    ])
+    RouterModule.forRoot(routes, {useHash: true}) // useHash: true - for getting '#' in URL after domain name
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
