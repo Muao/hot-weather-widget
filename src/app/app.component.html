@@ -1,7 +1,8 @@
 <body>
   <app-header></app-header>
   <div class="element" *ngIf="hotels && favoriteHotels"  >
-    <app-list></app-list>
+    <!-- <app-list></app-list> -->
+    <router-outlet></router-outlet>
 
     <div class="element-right">
       <app-weather></app-weather>

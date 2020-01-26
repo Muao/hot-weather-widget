@@ -14,6 +14,8 @@ import { TitleAndDescriptionSearchPipe } from './list/pipe/title-and-description
 import { FilteringByStarsPipe } from './list/pipe/filtering-by-stars.pipe';
 import { DataService } from './servises/data.service';
 import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -29,12 +31,21 @@ import {HttpClientModule} from '@angular/common/http';
     ItemComponent,
     FavoriteComponent,
     TitleAndDescriptionSearchPipe,
-    FilteringByStarsPipe
+    FilteringByStarsPipe,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {
+      path: '', component: ListComponent
+      },
+      {
+        path: '**', component: NotFoundComponent// set strong in the end of configuration list
+      }
+    ])
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
