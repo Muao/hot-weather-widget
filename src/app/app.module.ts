@@ -21,6 +21,7 @@ import { DataService } from './servises/data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HotelComponent } from './hotels/hotel/hotel.component';
 
 
 
@@ -37,7 +38,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FavoriteComponent,
     TitleAndDescriptionSearchPipe,
     FilteringByStarsPipe,
-    NotFoundComponent
+    NotFoundComponent,
+    HotelComponent
   ],
   imports: [
     BrowserModule,

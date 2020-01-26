@@ -1,5 +1,7 @@
+<!-- can use  [routerLink]="['hotels/', hotel.id]"-->
 <div
   class="activity-row"
+  [routerLink]="[hotel.id]"
   *ngFor="let hotel of hotels; odd as odd"
   [ngClass]="{
     'active-hotel': hotel.id === currentHotel.id,

@@ -1,3 +1,4 @@
+import { HotelComponent } from './hotels/hotel/hotel.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersComponent } from './shared/components/users/users.component';
 import { ListComponent } from './list/list.component';
@@ -14,6 +15,9 @@ export const routes: Routes = [
   },
   {
   path: 'about', component: AboutComponent
+  },
+  {
+  path: 'hotels/:hotelid', component: HotelComponent
   },
   {
   path: 'contacts', component: ContactsComponent

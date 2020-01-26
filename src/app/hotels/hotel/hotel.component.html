@@ -1,0 +1,17 @@
+<div class="activity-desc">
+  <h5>{{ hotel.title }}</h5>
+  <p>{{ hotel.description }}</p>
+  <p>{{ hotel.address }}</p>
+  <h6>{{ hotel.phone }}</h6>
+</div>
+<div class="activity-img">
+  <ul>
+    <li *ngFor="let photo of hotel.photos">
+      <img [src]="photo" alt="" />
+    </li>
+  </ul>
+  <button mat-raised-button (click)="addToFavorite(hotel)">
+    To Favorite
+  </button>
+</div>
+<div class="clear"></div>

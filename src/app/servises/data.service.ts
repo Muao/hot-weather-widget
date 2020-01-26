@@ -26,6 +26,10 @@ export class DataService {
       }));
   }
 
+  public getHotel(id: number): Observable<Hotel | null> {
+    return this.http.get<Hotel>(`${environment.api}/hotels/${id}`);
+  }
+
   public get getCurrentHotel(): Observable<Hotel> {
     return this.currentHotel;
   }
