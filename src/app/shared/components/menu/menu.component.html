@@ -1,7 +1,13 @@
-<button routerLink='hotels'>Hotels</button>
-<button routerLink='about'>About this project</button>
-<button routerLink='users'>Users</button>
-<button routerLink='contacts'>Contacts us</button>
+<button
+routerLink='hotels'
+routerLinkActive='active'
+[routerLinkActiveOptions]='{exact: true}'><!--for not getting routerlinkActive in children -->
+Hotels
+</button>
+
+<button routerLink='about' routerLinkActive='active'>About this project</button>
+<button routerLink='users' routerLinkActive='active'>Users</button>
+<button routerLink='contacts' routerLinkActive='active'>Contacts us</button>
 
 
 
