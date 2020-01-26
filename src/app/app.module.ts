@@ -1,3 +1,7 @@
+import { UsersComponent } from './shared/components/users/users.component';
+import { HotelsComponent } from './shared/components/hotels/hotels.component';
+import { ContactsComponent } from './shared/components/contacts/contacts.component';
+import { AboutComponent } from './shared/components/about/about.component';
 import { SharedModule } from './shared/shared.module';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -42,6 +46,21 @@ import { NotFoundComponent } from './not-found/not-found.component';
       {
       path: '', component: ListComponent
       },
+      {
+        path: 'hotels', component: HotelsComponent
+        },
+      {
+      path: 'about', component: AboutComponent
+      },
+      {
+        path: 'contacts', component: ContactsComponent
+        },
+
+          {
+            path: 'users', component: UsersComponent
+            },
+
+
       {
         path: '**', component: NotFoundComponent// set strong in the end of configuration list
       }
