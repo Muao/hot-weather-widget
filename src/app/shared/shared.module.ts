@@ -11,9 +11,10 @@ import { HotelsComponent } from './components/hotels/hotels.component';
 import { AboutComponent } from './components/about/about.component';
 import { UsersComponent } from './components/users/users.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { AclDirective } from './directives/acl.directive';
 
 @NgModule({
-  declarations: [MenuComponent, HotelsComponent, AboutComponent, UsersComponent, ContactsComponent],
+  declarations: [MenuComponent, HotelsComponent, AboutComponent, UsersComponent, ContactsComponent, AclDirective],
   imports: [
     CommonModule,
     RouterModule // for routerLink working on menu.html
@@ -32,6 +33,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     ContactsComponent,
     HotelsComponent,
     UsersComponent,
+    AclDirective
 
   ]
 })
