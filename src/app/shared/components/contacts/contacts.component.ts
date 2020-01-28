@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
+import {DataService} from '../../../servises/data.service';
 
 @Component({
   selector: 'app-contacts',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
+  constructor(private activeRoute: ActivatedRoute, private dataService: DataService) { }
 
-  constructor() { }
+ public editMode: boolean;
 
   ngOnInit() {
+    this.activeRoute.queryParams.subscribe((data: Params) => {
+      this.editMode = data.editMode;
+    });
+  }
+
+  public canDeactivate(): boolean {
+    alert('You have unsaved data.');
+    return false;
   }
 
 }
