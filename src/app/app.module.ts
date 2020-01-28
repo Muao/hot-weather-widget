@@ -9,7 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
-import {AppHotelsComponent} from './app-hotels/app-hotels.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleAndDescriptionSearchPipe } from './list/pipe/title-and-description-search.pipe';
 import { FilteringByStarsPipe } from './list/pipe/filtering-by-stars.pipe';
@@ -20,7 +19,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppHotelsComponent,
     AppComponent,
     WeatherComponent,
     ProfileComponent,
