@@ -28,8 +28,9 @@ export class ItemComponent implements OnInit, OnDestroy {
     this.dataService.setCurrentHotel(hotel);
   }
 
-  public addToFavorite(hotel: Hotel): void {
+  public addToFavorite(hotel: Hotel, $event: MouseEvent): void {
     this.dataService.addToFavorite(hotel);
+    $event.stopPropagation();
   }
 
   ngOnDestroy(): void {
