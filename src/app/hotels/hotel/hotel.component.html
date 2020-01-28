@@ -1,4 +1,4 @@
-<div class="element-left">
+<div class="element-left" *ngIf="hotel">
   <div class="element-bg-img">
     <img [src]="hotel.picture" alt="" class="img-responsive" />
   </div>
@@ -12,9 +12,15 @@
       <img [src]="photo" alt="" width="150" />
     </li>
   </ul>
-  <button mat-raised-button (click)="addToFavorite(hotel)">
+  <button (click)="addToFavorite(hotel)">
     To Favorite
   </button>
+    <button routerLink='comments' routerLinkActive='active'>
+      Comments
+    </button>
+    <button routerLink='hotelContacts' routerLinkActive='active'>
+      Contacts
+    </button>
 </div>
 </div>
 

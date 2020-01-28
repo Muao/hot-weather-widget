@@ -22,6 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HotelComponent } from './hotels/hotel/hotel.component';
+import { CommentsComponent } from './hotels/hotel/components/comments/comments.component';
+import {HotelContactsComponent} from './hotels/hotel/components/hotel-contacts/hotel-contacts.component';
 
 
 
@@ -39,7 +41,9 @@ import { HotelComponent } from './hotels/hotel/hotel.component';
     TitleAndDescriptionSearchPipe,
     FilteringByStarsPipe,
     NotFoundComponent,
-    HotelComponent
+    HotelComponent,
+    CommentsComponent,
+    HotelContactsComponent
   ],
   imports: [
     BrowserModule,
