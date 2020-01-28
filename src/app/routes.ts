@@ -7,6 +7,7 @@ import {ContactsComponent} from './shared/components/contacts/contacts.component
 import {Routes} from '@angular/router';
 import {CommentsComponent} from './hotels/hotel/components/comments/comments.component';
 import {HotelContactsComponent} from './hotels/hotel/components/hotel-contacts/hotel-contacts.component';
+import {UsersGuard} from './shared/guards/users.guard';
 
 export const routes: Routes = [
   {
@@ -31,7 +32,7 @@ export const routes: Routes = [
     path: 'contacts', component: ContactsComponent
   },
   {
-    path: 'users', component: UsersComponent
+    path: 'users', component: UsersComponent, canActivate: [UsersGuard]
   },
   {
     path: '**', component: NotFoundComponent// set strong in the end of configuration list
