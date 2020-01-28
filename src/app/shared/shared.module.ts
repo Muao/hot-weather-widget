@@ -7,14 +7,12 @@ import { MatFormFieldModule, MatInputModule, MatRadioModule, MatSnackBarModule }
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
-import { HotelsComponent } from './components/hotels/hotels.component';
+
 import { AboutComponent } from './components/about/about.component';
-import { UsersComponent } from './components/users/users.component';
-import { ContactsComponent } from './components/contacts/contacts.component';
 import { AclDirective } from './directives/acl.directive';
 
 @NgModule({
-  declarations: [MenuComponent, HotelsComponent, AboutComponent, UsersComponent, ContactsComponent, AclDirective],
+  declarations: [MenuComponent, AboutComponent, AclDirective],
   imports: [
     CommonModule,
     RouterModule // for routerLink working on menu.html
@@ -30,9 +28,6 @@ import { AclDirective } from './directives/acl.directive';
     MatSnackBarModule,
     MenuComponent,
     AboutComponent,
-    ContactsComponent,
-    HotelsComponent,
-    UsersComponent,
     AclDirective
 
   ]

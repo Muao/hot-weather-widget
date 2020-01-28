@@ -1,13 +1,10 @@
-import {HotelComponent} from './hotels/hotel/hotel.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {UsersComponent} from './shared/components/users/users.component';
 import {ListComponent} from './list/list.component';
 import {AboutComponent} from './shared/components/about/about.component';
-import {ContactsComponent} from './shared/components/contacts/contacts.component';
 import {Routes} from '@angular/router';
 import {CommentsComponent} from './hotels/hotel/components/comments/comments.component';
 import {HotelContactsComponent} from './hotels/hotel/components/hotel-contacts/hotel-contacts.component';
-import {UsersGuard} from './shared/guards/users.guard';
+
 
 export const routes: Routes = [
   {
@@ -20,19 +17,18 @@ export const routes: Routes = [
     path: 'about', component: AboutComponent
   },
   {
-    path: 'hotels/:hotelid', component: HotelComponent
+    path: 'hotels',
+    loadChildren: () => import('./hotels/hotel/hotel.module').then((mod) => mod.HotelModule)
   },
   {
-    path: 'hotels/:hotelid/comments', component: CommentsComponent
+    path: 'contacts',
+    // tslint:disable-next-line:max-line-length
+    loadChildren: () => import('./shared/components/contacts/contacts.module').then((mod) => mod.ContactsModule) // lazy load module and it's components
   },
   {
-    path: 'hotels/:hotelid/hotelContacts', component: HotelContactsComponent
-  },
-  {
-    path: 'contacts', component: ContactsComponent
-  },
-  {
-    path: 'users', component: UsersComponent, canActivate: [UsersGuard]
+    // path: 'users', component: UsersComponent, canActivate: [UsersGuard]   --> it goes to users.module.ts
+    path: 'users',
+    loadChildren: () => import('./shared/components/users/users.module').then((mod) => mod.UsersModule)
   },
   {
     path: '**', component: NotFoundComponent// set strong in the end of configuration list
