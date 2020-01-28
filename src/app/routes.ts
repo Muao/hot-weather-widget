@@ -2,9 +2,6 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {ListComponent} from './list/list.component';
 import {AboutComponent} from './shared/components/about/about.component';
 import {Routes} from '@angular/router';
-import {CommentsComponent} from './hotels/hotel/components/comments/comments.component';
-import {HotelContactsComponent} from './hotels/hotel/components/hotel-contacts/hotel-contacts.component';
-
 
 export const routes: Routes = [
   {

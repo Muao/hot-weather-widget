@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {HotelComponent} from './hotel.component';
 import {RouterModule} from '@angular/router';
 import {CommentsComponent} from './components/comments/comments.component';
 import {HotelContactsComponent} from './components/hotel-contacts/hotel-contacts.component';
-
 
 
 @NgModule({
@@ -13,14 +12,16 @@ import {HotelContactsComponent} from './components/hotel-contacts/hotel-contacts
     CommonModule,
     RouterModule.forChild([
       {
-        path: ':hotelid', component: HotelComponent
-      },
-      {
-        path: ':hotelid/comments', component: CommentsComponent
-      },
-      {
-        path: ':hotelid/hotelContacts', component: HotelContactsComponent
-      },
+        // tslint:disable-next-line:max-line-length
+        path: ':hotelid', component: HotelComponent, children: [ // fixme children not working - children components bunds to parent tag <router-outlet></router-outlet>
+          {
+            path: ':hotelid/comments', component: CommentsComponent
+          },
+          {
+            path: ':hotelid/hotelContacts', component: HotelContactsComponent
+          }
+        ]
+      }
     ])
   ], exports: [
     HotelComponent,
@@ -28,4 +29,5 @@ import {HotelContactsComponent} from './components/hotel-contacts/hotel-contacts
     HotelContactsComponent
   ]
 })
-export class HotelModule { }
+export class HotelModule {
+}
