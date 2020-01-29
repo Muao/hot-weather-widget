@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule, MatInputModule, MatRadioModule, MatSnackBarModule } from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatPaginatorModule, MatRadioModule, MatSnackBarModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './components/menu/menu.component';
@@ -26,6 +26,7 @@ import { AclDirective } from './directives/acl.directive';
     MatRadioModule,
     FormsModule,
     MatSnackBarModule,
+    MatPaginatorModule,
     MenuComponent,
     AboutComponent,
     AclDirective

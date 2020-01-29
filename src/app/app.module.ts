@@ -16,6 +16,7 @@ import { DataService } from './servises/data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {MatTableModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     SharedModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, {useHash: true}) // useHash: true - for getting '#' in URL after domain name
+    RouterModule.forRoot(routes, {useHash: true}),
+    MatTableModule,
+    // useHash: true - for getting '#' in URL after domain name
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

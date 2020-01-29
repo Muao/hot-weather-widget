@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
+import {IHotelPaginationOptions} from '../list/interfaces/hotel-pagination-options';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import {map} from 'rxjs/operators';
 export class DataService {
 
   private currentHotel: BehaviorSubject<Hotel> = new BehaviorSubject<Hotel>(null);
-  private favoriteHotels: Observable<Hotel[]>;
+  private readonly favoriteHotels: Observable<Hotel[]>;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {
     this.favoriteHotels = this.http.get<Hotel[]>(`${environment.api}/favorite`);
@@ -24,6 +25,16 @@ export class DataService {
         this.currentHotel.next(res[0]);
         return res;
       }));
+  }
+
+  public getHotelsOpt(options: IHotelPaginationOptions): Observable<Hotel[]> {
+    const params: HttpParams = new HttpParams({
+      fromObject: {
+        _page: String((options._page + 1)),
+        _limit: String(options._limit)
+      }
+    });
+    return this.http.get<Hotel[]>(`${environment.api}/hotels`, { params });
   }
 
   public getHotel(id: number): Observable<Hotel | null> {

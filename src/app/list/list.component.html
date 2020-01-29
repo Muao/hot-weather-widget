@@ -29,12 +29,18 @@
       <h3>Righteous indignation & like</h3>
       <span class="line"> </span>
       <div class="activity_box">
-        <div class="scrollbar" id="style-2">
+
           <item
             [hotels]="hotels | titleAndDescriptionSearch: filterInput | filteringByStars: selectedRadio"
           ></item>
-        </div>
+
       </div>
+      <mat-paginator *ngIf="allHotels" [length]=allHotels.length
+                     [pageIndex]="pageOptions._page"
+                     [pageSize]="pageOptions._limit"
+                     [pageSizeOptions]="[1, 2, 5]"
+                     (page)="changePageOptions($event)">
+      </mat-paginator>
     </div>
   </div>
 </div>
